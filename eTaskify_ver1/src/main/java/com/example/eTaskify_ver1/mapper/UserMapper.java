@@ -13,7 +13,6 @@ public interface UserMapper {
 
     @Mappings({
             @Mapping(source = "name", target = "name"),
-            @Mapping(source = "name", target = "name"),
             @Mapping(source = "surname", target = "surname"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "password", target = "password"),
@@ -22,7 +21,6 @@ public interface UserMapper {
     UserDto entityToDto(UserEntity userEntity);
 
     @Mappings({
-            @Mapping(source = "name", target = "name"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "surname", target = "surname"),
             @Mapping(source = "email", target = "email"),
