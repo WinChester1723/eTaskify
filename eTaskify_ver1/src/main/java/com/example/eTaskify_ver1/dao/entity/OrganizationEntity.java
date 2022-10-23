@@ -1,6 +1,7 @@
 package com.example.eTaskify_ver1.dao.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "abb_schema", name = "organization")
@@ -36,13 +38,13 @@ public class OrganizationEntity {
             fetch = FetchType.LAZY)
     private List<UserEntity> userEntityList;
 
-    public void addUsers(UserEntity userEntity) {
-        if (userEntityList == null) {
-            userEntityList = new ArrayList<>();
-        }
-        userEntityList.add(userEntity);
-        userEntity.setOrganizationEntity(this);
-    }
+//    public void addUsers(UserEntity userEntity) {
+//        if (userEntityList == null) {
+//            userEntityList = new ArrayList<>();
+//        }
+//        userEntityList.add(userEntity);
+//        userEntity.setOrganizationEntity(this);
+//    }
 
     public OrganizationEntity(Long id, String name, Integer phoneNumber,
                               String address, String userName, String email, List<UserEntity> userEntityList) {

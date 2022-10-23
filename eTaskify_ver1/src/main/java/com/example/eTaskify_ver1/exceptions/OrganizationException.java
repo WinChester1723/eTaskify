@@ -4,12 +4,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class CompanyException extends RuntimeException{
+public class OrganizationException extends RuntimeException{
 
-    public CompanyException() {
+    public OrganizationException() {
     }
 
-    public CompanyException(String message) {
+    public OrganizationException(String message) {
         super(message);
     }
 }

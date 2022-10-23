@@ -2,6 +2,7 @@ package com.example.eTaskify_ver1.dao.entity;
 
 import com.example.eTaskify_ver1.model.enums.TaskStatusEnum;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "abb_schema", name = "task")

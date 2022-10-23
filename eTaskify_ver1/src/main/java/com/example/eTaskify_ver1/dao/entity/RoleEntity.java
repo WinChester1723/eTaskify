@@ -2,6 +2,7 @@ package com.example.eTaskify_ver1.dao.entity;
 
 import com.example.eTaskify_ver1.model.enums.RoleEnum;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "abb_schema", name = "role")

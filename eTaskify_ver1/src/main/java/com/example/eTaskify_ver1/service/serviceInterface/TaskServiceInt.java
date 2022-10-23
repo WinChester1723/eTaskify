@@ -10,5 +10,5 @@ public interface TaskServiceInt{
     TaskDto findTaskById(long id);
     List<TaskDto> findAllTasks();
     TaskDto addTask(long id, AddTaskDto addTaskDto);
-    Optional<TaskDto> findByTitle(String title);
+    List<TaskDto> findByTitle(String title);
 }

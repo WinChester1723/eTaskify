@@ -3,7 +3,7 @@ package com.example.eTaskify_ver1.utils;
 import com.example.eTaskify_ver1.dao.entity.OrganizationEntity;
 import com.example.eTaskify_ver1.dao.entity.TaskEntity;
 import com.example.eTaskify_ver1.dao.entity.UserEntity;
-import com.example.eTaskify_ver1.exceptions.CompanyException;
+import com.example.eTaskify_ver1.exceptions.OrganizationException;
 import com.example.eTaskify_ver1.exceptions.PasswordException;
 import com.example.eTaskify_ver1.exceptions.TaskException;
 import com.example.eTaskify_ver1.exceptions.UserException;
@@ -29,7 +29,7 @@ public class ValidUtilsImp implements ValidUtilInt{
     @Override
     public void validateCompany(Optional<OrganizationEntity> organizationEntity){
         if(!organizationEntity.isPresent()){
-            throw new CompanyException(ErrorMessageEnum.INVALID_COMPANY.getMessage());
+            throw new OrganizationException(ErrorMessageEnum.INVALID_ORGANIZATION.getMessage());
         }
     }
 
