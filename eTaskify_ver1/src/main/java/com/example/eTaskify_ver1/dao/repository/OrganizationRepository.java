@@ -8,8 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface OrganizationRepository extends JpaRepository<OrganizationEntity, Long> {
-
     Optional<OrganizationEntity> findByName(String name);
-
-
+    void deleteById(long id);
 }

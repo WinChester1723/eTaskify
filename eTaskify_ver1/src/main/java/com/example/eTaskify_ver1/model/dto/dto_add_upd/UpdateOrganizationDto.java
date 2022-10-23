@@ -1,4 +1,4 @@
-package com.example.eTaskify_ver1.model.dto;
+package com.example.eTaskify_ver1.model.dto.dto_add_upd;
 
 import com.example.eTaskify_ver1.dao.entity.UserEntity;
 import lombok.AllArgsConstructor;
@@ -10,9 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrganizationDto {
-
-    private Long id;
+public class UpdateOrganizationDto {
     private String name;
     private Integer phoneNumber;
     private String address;
@@ -20,5 +18,4 @@ public class OrganizationDto {
     private String email;
     private String password;
     private List<UserEntity> userEntityList;
-
 }

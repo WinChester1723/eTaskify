@@ -8,8 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface TaskRepository extends JpaRepository<TaskEntity, Long> {
-
-    TaskEntity findByTitle(String title);
-
-//    Optional<TaskEntity> findByTitle(String title);
+//    TaskEntity findByTitle(String title);
+    Optional<TaskEntity> findByTitle(String title);
+    void deleteById(long id);
 }
