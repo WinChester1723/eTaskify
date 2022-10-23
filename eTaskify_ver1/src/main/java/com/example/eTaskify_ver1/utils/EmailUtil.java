@@ -10,7 +10,7 @@ import java.util.List;
 @Component
 public class EmailUtil {
     private JavaMailSender javaMailSender;
-    private final String FROM = "noreply@abb-bank.az";
+    private final String FROM = "Please no reply this email";
 
     public void notifyEmployeesByEmail(long taskId, List<UserEntity> userEntities){
         SimpleMailMessage msg;
@@ -19,8 +19,8 @@ public class EmailUtil {
         for(UserEntity user : userEntities){
             msg.setTo(user.getEmail());
         }
-        msg.setSubject("New Task #" + taskId);
-        msg.setText("Task #" + taskId + " Has Been Assigned To You");
+        msg.setSubject("New Task: #" + taskId);
+        msg.setText("Task: #" + taskId + " Has Been Assigned To You");
 
         javaMailSender.send(msg);
     }
