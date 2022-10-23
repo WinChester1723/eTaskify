@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateOrganizationDto {
+    private Long id;
     private String name;
     private Integer phoneNumber;
     private String address;
