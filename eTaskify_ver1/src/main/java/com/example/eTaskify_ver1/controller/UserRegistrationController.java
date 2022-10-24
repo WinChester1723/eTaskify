@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/registration")
 public class UserRegistrationController {
     private final UserServiceInt userServiceInt;
-    private final OrganizationServiceInt organizationServiceInt;
 
-    @GetMapping("/")
+    @GetMapping("/show")
     public String showRegPage() {
         return "registration";
     }
