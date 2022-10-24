@@ -9,8 +9,10 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -43,8 +45,8 @@ public class SecurityConfiguration implements WebMvcConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity)throws Exception{
         httpSecurity.authorizeHttpRequests()
                 .antMatchers(
-                        "/registration**",
-                        "/js/**",
+                        "/registration/**",
+                        "/static/js/**",
                         "/css/**"
                 ).permitAll()
                 .antMatchers("/admin/**").hasRole(RoleEnum.ADMIN.name())
@@ -52,15 +54,23 @@ public class SecurityConfiguration implements WebMvcConfigurer {
                 .antMatchers("/index").permitAll()
                 .and()
                 .formLogin()
+                .loginPage("/login")
                 .successHandler(customAuthenticationSuccessHandler)
                 .permitAll()
                 .and()
                 .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .clearAuthentication(true)
-                .invalidateHttpSession(true);
+                .invalidateHttpSession(true)
+                .permitAll();
         httpSecurity.csrf().disable();
         return httpSecurity.build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer(){
+        return (web)->web.ignoring().antMatchers("/resources/**","/img/**","/css/**","/js/**");
     }
 
 }
