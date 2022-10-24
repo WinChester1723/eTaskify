@@ -30,10 +30,4 @@ public class OrgRegistrationController {
         organizationServiceInt.updOrg(updateOrganizationDto);
         return "redirect:/";
     }
-//    maybe
-//    @GetMapping("/show-all-org")
-//    public String showAllOrg(){
-//        organizationServiceInt.allOrg();
-//        return "redirect:/";
-//    }
 }
