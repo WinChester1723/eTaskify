@@ -32,9 +32,6 @@ public class TaskEntity {
     private TaskStatusEnum statusEnum;
 
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(schema = "abb_schema", name = "users_task",
-    joinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"))
+    @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
     private List<UserEntity> usersList;
 }
