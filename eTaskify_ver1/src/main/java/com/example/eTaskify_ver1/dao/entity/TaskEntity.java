@@ -1,6 +1,7 @@
 package com.example.eTaskify_ver1.dao.entity;
 
 import com.example.eTaskify_ver1.model.enums.TaskStatusEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class TaskEntity {
     @Column(name = "status")
     private TaskStatusEnum statusEnum;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(schema = "abb_schema", name = "users_task",
     joinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"),

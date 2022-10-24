@@ -32,15 +32,12 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(schema = "abb_schema", name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roles = new HashSet<>();
-
-    public void addRole(RoleEntity roleEntity) {
-        this.roles.add(roleEntity);
-    }
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -53,8 +50,9 @@ public class UserEntity {
         this.email = email;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(schema = "abb_schema", name = "user_task",
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(schema = "abb_schema", name = "users_task",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"))
     private List<TaskEntity> taskEntities;
