@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -55,5 +56,5 @@ public class UserEntity {
     @JoinTable(schema = "abb_schema", name = "users_task",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "task_id"))
-    private List<TaskEntity> taskEntities;
+    private List<TaskEntity> taskEntities = new ArrayList<>();
 }

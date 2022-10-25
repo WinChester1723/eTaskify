@@ -36,7 +36,7 @@ public class OrganizationEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "organizationEntity",
             fetch = FetchType.LAZY)
-    private List<UserEntity> userEntityList;
+    private List<UserEntity> userEntityList = new ArrayList<>();
 
 //    public void addUsers(UserEntity userEntity) {
 //        if (userEntityList == null) {

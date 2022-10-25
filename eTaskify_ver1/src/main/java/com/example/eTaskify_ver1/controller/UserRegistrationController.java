@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-//after using web pages this file for testing work it or not
+//before using web pages this file for testing work it or not
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/registration")
