@@ -79,6 +79,7 @@ public class UserServiceImp implements UserServiceInt {
     }
 
     @Override
+    @Transactional
     public UserDto addUser(long id, AddUserDto addUserDto) {
         var organization = organizationServiceInt.findOrgId(id);
 
@@ -97,6 +98,7 @@ public class UserServiceImp implements UserServiceInt {
     }
 
     @Override
+    @Transactional
     public UserDto updateUser(UpdateUserDto updateUserDto) {
         var userDto = findById(updateUserDto.getId());
         validUtilInt.validatePassword(userDto.getPassword());

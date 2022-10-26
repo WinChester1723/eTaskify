@@ -33,6 +33,6 @@ public class TaskEntity {
     private TaskStatusEnum statusEnum;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "taskEntities",fetch = FetchType.LAZY)
     private List<UserEntity> usersList = new ArrayList<>();
 }
